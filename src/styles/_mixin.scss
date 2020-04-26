@@ -1,0 +1,75 @@
+
+
+@mixin r(){
+    border: 1px solid red;
+}
+@mixin g(){
+    border: 1px solid green;
+}
+
+
+$breakpoints: (
+  "xs":    0px,
+  "p":    400px,
+  "p-w":  480px,
+  "pt":    560px,
+  "t-s":  640px,
+  "t":    768px,
+  "t-w":  1024px,
+  "d":  1248px,
+  "d-w":1440px
+);
+
+
+@mixin mq($width, $type: max) {
+  @if map_has_key($breakpoints, $width) {
+   $width: map_get($breakpoints, $width);
+   @if $type == max {
+    $width: $width;
+   }
+   @media only screen and (#{$type}-width: $width) {
+    @content;
+   }
+  }
+}
+
+// Для использования с gulp спрайт плагином
+@mixin sprite($icon, $type: all) {
+  @if $type == all {
+      // Shares the backgrounds
+      @extend %sprite;
+  }
+
+  $iconMap: icon-attr($icon);
+
+  // Вывод размеров в em
+  @if $type == all or $type == size {
+      width: mq-px2em(map-get($iconMap, width) + 1);
+      height: mq-px2em(map-get($iconMap, height) + 1);
+  }
+
+  // Вывод положения фона в em
+  @if $type == all or $type == bg {
+      background-position: mq-px2em(map-get($iconMap, x)) mq-px2em(map-get($iconMap, y));
+  }
+
+  // Добавление ie резерва
+  @include ie-sprite($icon, $type);
+
+}
+
+@mixin push-auto (){
+    margin: {
+     left: auto;
+     right: auto;
+    }
+}
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+  }
+@mixin title-bold($fz, $fw){
+    font-size: $fz;
+    font-weight: $fw;
+}

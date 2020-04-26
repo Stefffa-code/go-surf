@@ -1,0 +1,367 @@
+body{
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    color: #FFFFFF;
+    background-color: #171919;
+    text-transform: uppercase;
+}
+a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+div, a, p, span, ul, nav, li {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+footer,
+section{
+    max-width: 1920px;
+    width: 100%;
+    @include push-auto;
+}
+.sleep,
+.shop,
+.surf{
+    padding: 160px 0 100px;
+    @include mq('t-w'){
+        padding: 130px 0 30px;
+    }
+    @include mq('pt'){
+        padding: 120px 0 0px;
+    }
+}
+
+.travel{
+    padding-top: 160px;
+    @include mq('t-w'){
+        padding-top: 130px;
+    }
+    @include mq('pt'){
+        padding-top: 130px;
+    }
+}
+
+.container{
+    max-width: 1920px;    
+    width: 100%;
+    padding: 0 4%;
+    @include push-auto;
+    // @include mq('d'){
+    //     padding: 0 20px;
+    // }
+}
+
+
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+}
+
+.title{
+    padding-left: 150px;
+    position: relative;
+    display: inline-block;
+    @include mq('pt'){
+        padding: 0;
+    }
+    p{
+        @include title-bold(80px, 800);
+        position: relative;
+        line-height: 100%;        
+        &:before{
+            @include pseudo;
+            width: 80px;
+            height: 10px;
+            border-top: 1px solid $acc;
+            top: 0;
+            right: 0;
+        }        
+    }
+    .txt-below{
+        position: absolute;
+        left: -140px;
+        top: 25px;
+        @include mq('pt'){
+            display: none;
+        }
+    }
+}
+.suptitle-bold{
+    @include title-bold(40px, 800);
+    line-height: 100%;
+    margin-top: 10px;
+    @include mq('t-w'){
+        font-size: 30px;       
+    }
+    @include mq('t-s'){
+        font-size: 25px; 
+    }
+}
+.suptitle-left{
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 7.33333px;
+    opacity: 0.5;
+    padding-left: 103px;
+    position: relative;
+    display: inline-block;
+    @include mq('t-w'){
+        font-size: 17px; 
+        padding-left: 65px; 
+        letter-spacing: 6px;      
+    }
+    @include mq('t-s'){
+        font-size: 15px;
+        padding-left: 40px; 
+    }
+    &:before{
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 1px;
+        background-color: #fff;
+        left: 0;
+        top: 50%;
+        @include mq('t-w'){
+            width: 50px;        
+        }
+        @include mq('t-s'){
+            width: 30px;  
+        }
+    }
+}
+.suptitle-right{
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 7.33333px;
+    opacity: 0.5;
+    padding-right: 103px;
+    position: relative;
+    display: inline-block;
+    @include mq('t-w'){
+        font-size: 17px; 
+        padding-right: 65px; 
+        letter-spacing: 6px;      
+    }
+    @include mq('t-s'){
+        font-size: 15px;
+        padding-right: 40px; 
+    }
+    &:before{
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 1px;
+        background-color: #fff;
+        right: 0;
+        top: 50%;
+        @include mq('t-w'){
+            width: 50px;         
+        }
+        @include mq('t-s'){
+            width: 30px;  
+        }
+    }
+    
+}
+.txt-below{
+    font-weight: 800;
+    font-size: 200px;
+    line-height: 156px;
+    opacity: 0.02;
+    
+}
+.txt-vert{
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 8px;
+    transform: rotate(-90deg);
+    opacity: 0.5;
+    width: 0;
+    height: 0;
+    white-space: nowrap;
+}
+.locked{
+    @include mq('pt'){
+        overflow: hidden;
+    }    
+}
+.overlay.active{
+    @include mq('pt'){
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(#000000, 0.5) ;
+    }
+}
+.slider-arrows{
+    position: absolute;
+    top: 40px;
+    right: 4%;
+    cursor: pointer;
+    z-index: 1;
+    animation: hang-v 1s ease-in infinite;
+    &:hover{
+        animation: hang-v-hover 1s ease-in infinite;
+    }
+    &__left{
+        right: calc(4% + 45px);
+    }
+}
+.box-btn{
+    @include title-bold(40px, 800);
+    @include mq('d'){
+        font-size: 30px;
+    }
+    span{
+        display: inline-block;
+        background-color: $acc;
+        padding: 17px ;
+        margin-left: 5px;
+        position: relative;
+        &:before{
+            @include pseudo;
+            width: 20px;
+            height: 1px;
+            background-color: #fff;
+            top: 50%;
+            left: -10px;
+        }
+    }
+    img{
+        transform: translateY(-3px);
+        margin-left: 5px;
+        display: inline-block;
+    }
+    &:hover{
+        animation: hang 1s ease-in infinite;
+    }
+}
+
+@keyframes hang {
+    0%{
+        transform: translate(0, 0);
+    }
+    50%{
+        transform: translate(0, 3px);
+    }
+    100%{
+        transform: translate(0, 0);
+    }
+}
+@keyframes hang-v {
+    0%{
+        transform: translate(0, 0);
+    }
+    50%{
+        transform: translate(3px, 0);
+    }
+    100%{
+        transform: translate(0, 0);
+    }
+}
+@keyframes hang-v-hover {
+    0%{
+        transform: translate(0, -2px);
+    }
+    50%{
+        transform: translate(3px, -2px);
+    }
+    100%{
+        transform: translate(0, -2px);
+    }
+}
+
+.fw-100{
+    font-weight: 100;
+}
+
+
+.slick-slide{
+    outline: none;
+}
+
+.flex{
+    display: flex;
+}
+
+  
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+-webkit-appearance: none;
+margin: 0;
+}
+
+input[type=number]
+{
+-moz-appearance: textfield;
+}
+  
+.quantity{
+    display: inline-block;
+    input {
+        width: 47px;
+        display: block;
+        color: #fff;
+        font-weight: 800;
+        line-height: 80%;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+    }
+    input:focus {
+        outline: 0;
+    }
+    &-nav {
+        height: 42px;
+    }
+    &-button {
+        cursor: pointer;        
+        user-select: none;
+        position: absolute; 
+        top: 65px;  
+        height: 17px; 
+        display: flex;
+        align-items: center; 
+        @include mq('t-w'){
+            top: 40px;
+        } 
+    }
+    &-button.quantity-up {
+        right: 0;
+        @include mq('t-w'){
+            right: auto;
+            left: 35px;
+        } 
+    }
+    &-button.quantity-down {
+        right: 35px;
+        @include mq('t-w'){
+            right: auto;
+            left: 0px;
+        }
+    }
+    img{
+        display: block;
+    }
+}
+   
+
+
+
+.red{
+    border: 1px dashed red;
+}
